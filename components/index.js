@@ -13,6 +13,6 @@ class App extends Component {
 }
 
 const component = <App />;
-const container = document.getElementById("app");
+const container = document.getElementById('app');
 
 ReactDOM.render(component, container);

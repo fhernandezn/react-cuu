@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "server": "webpack-dev-server"
+    "server": "webpack-dev-server",
+    "lint:js": "eslint components/",
+    "lint:css": "sass-lint --verbose --no-exit"
   },
   "keywords": [],
   "author": "",
@@ -19,9 +21,13 @@
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-react": "^7.6.3",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-react": "^7.16.0",
     "node-sass": "^4.13.0",
+    "sass-lint": "^1.12.1",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
