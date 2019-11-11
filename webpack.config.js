@@ -4,7 +4,7 @@ module.exports = {
     entry: './components/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "bundle.js",
+        filename: 'bundle.js',
         publicPath: '/assets/'
     },
     module: {
@@ -34,7 +34,7 @@ module.exports = {
         ]
     },
     devServer: {
-        port: 3000,
-        contentBase: path.resolve("./")
+        port: 3001,
+        contentBase: path.resolve('./')
     }
-}
+};

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
+    "start": "webpack-dev-server --mode development",
     "server": "webpack-dev-server",
     "lint:js": "eslint components/",
     "lint:css": "sass-lint --verbose --no-exit"

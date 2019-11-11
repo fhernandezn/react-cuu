@@ -1,19 +1,24 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+import { ReactSchoolContext } from '../..';
+
 const Event = (props) => {
     const { event } = props;
 
     return (
-        <div>
-            {
-                event.thumbnail_url &&
-                <img src={event.thumbnail_url}/>
-            }
-            <h2>{event.name}</h2>
-            <p>{event.description}</p>
-            <a href={'#/events/' + event.id}>Inscribirse</a> 
-        </div>
-    )
-}
+        <ReactSchoolContext.Consumer>
+            {value => <div>
+                {
+                    event.thumbnail_url &&
+                    <img src={event.thumbnail_url}/>
+                }
+                <h2>{event.name}Is the user logged in {value ? 'yes' : 'no'}</h2>
+                <p>{event.description}</p>
+                <Link to={`/events/${event.id}`}>Inscribirse</Link>
+            </div>}
+        </ReactSchoolContext.Consumer>
+    );
+};
 
 export default Event;

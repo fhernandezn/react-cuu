@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { getEvents } from '../../../services/events';
+import { withRouter } from 'react-router-dom';
 import Event from '../event';
+import Fetch from '../week4/Fetch';
 
 class Events extends Component {
 
@@ -9,36 +10,22 @@ class Events extends Component {
 
         this.state = {
             events: [],
-        }
-    }
-
-    componentDidMount() {
-        getEvents()
-            .then((response) => {
-                return response.data.data;
-            })
-            .then((events) => {
-                this.setState({
-                    events,
-                });
-                console.log(this.state);
-            });
+        };
     }
 
     render() {
-        const { events } = this.state;
-
         return (
             <div>
                 <h1>Events</h1>
-                {
-                    events.map((event, index) => {
-                        return <Event key={index} event={event}/>
-                    })
-                }
+                <Fetch url="event" render={data2 => {
+                    const {data: {data: {data}}} = data2;
+                    return data.map((event, index) => {
+                        return <Event key={index} event={event}/>;
+                    });
+                }} />
             </div>
-        )
+        );
     }
 }
 
-export default Events;
+export default withRouter(Events);
