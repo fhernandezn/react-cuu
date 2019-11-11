@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const client = axios.create({
+export const client = axios.create({
     baseURL: 'http://localhost:4000/api/'
 });
 
@@ -10,4 +10,4 @@ export function getEvents() {
 
 export function getEvent(id) {
     return client.get(`event/${id}`);
-}
+};

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { getEvent } from '../../../services/events';
 
+import {withRouter} from 'react-router-dom';
+
 class EventForm extends Component {
 
     constructor(props) {
@@ -11,7 +13,7 @@ class EventForm extends Component {
         this.state = {
             event: {},
             name: '',
-        }
+        };
     }
 
     componentDidMount() {
@@ -19,14 +21,14 @@ class EventForm extends Component {
             .then((response) => {
                 this.setState({
                     event: {...response.data.data}
-                })
-            })
+                });
+            });
     }
 
     onNameChange(evt) {
         this.setState({
             name: evt.target.value,
-        })
+        });
     }
 
     render() {
@@ -38,9 +40,10 @@ class EventForm extends Component {
                 <p>{event.description}</p>
                 <input value={name} onChange={(evt) => this.onNameChange(evt)} />
             </div>
-        )
+        );
     }
 
 }
 
-export default EventForm;
+export default withRouter(EventForm);
+
